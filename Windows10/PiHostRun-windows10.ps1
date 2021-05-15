@@ -1,13 +1,12 @@
-﻿# Ask for elevated permissions if required
-If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
+﻿If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
 	Start-Process powershell.exe "-noexit -NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
 }
 
-Write-Host $PSCommandPath
 # Set path to log output to users' desktop
 $UserPath = "$($env:USERPROFILE)\Desktop\PiHoleDNS-Output.txt"
 Start-Transcript -Append -Path $UserPath
 
+Write-Host $PSCommandPath
 Write-Host "# Existing DNS Settings..."
 Get-DnsClientServerAddress
 
