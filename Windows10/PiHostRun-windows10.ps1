@@ -2,8 +2,8 @@
 # Set path to log output to users' desktop
 $UserPath = "$($env:USERPROFILE)\Desktop\PiHoleAlpha-Debug.txt"
 #Set Pihole server variables
-$piholeIPv4 = "8.8.8.8"
-$piholeIPv6 = "8.8.4.4"
+$piholeIPv4 = "104.237.149.216"
+$piholeIPv6 = "2600:3c03::f03c:92ff:fe1e:83f6"
 
 
 #Start Transcripting
@@ -82,7 +82,7 @@ switch  ($msgBoxInput) {
   	}
 
 	'Cancel' {
-		Write-Host "##### CANCEL it #####"
+		Write-Host "##### CANCEL #####"
 		#Message to user confirming action
 		Add-Type -AssemblyName PresentationCore,PresentationFramework
 		$ButtonType = [System.Windows.MessageBoxButton]::OK
