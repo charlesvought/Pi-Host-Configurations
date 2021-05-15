@@ -1,8 +1,4 @@
-﻿#If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {#
-#	Start-Process powershell.exe "-noexit -NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-#}
-
-# Set path to log output to users' desktop
+﻿# Set path to log output to users' desktop
 $UserPath = "$($env:USERPROFILE)\Desktop\PiHoleDNS-Output.txt"
 Start-Transcript -Append -Path $UserPath
 
