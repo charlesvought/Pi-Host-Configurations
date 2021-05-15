@@ -82,7 +82,7 @@ switch  ($msgBoxInput) {
   	}
 
 	'Cancel' {
-		Write-Host "##### CANCEL #####"
+		Write-Host "##### CANCEL it #####"
 		#Message to user confirming action
 		Add-Type -AssemblyName PresentationCore,PresentationFramework
 		$ButtonType = [System.Windows.MessageBoxButton]::OK
