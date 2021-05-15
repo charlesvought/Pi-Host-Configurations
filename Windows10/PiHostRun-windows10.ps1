@@ -3,7 +3,7 @@
 $UserPath = "$($env:USERPROFILE)\Desktop\PiHoleAlpha-Debug.txt"
 #Set Pihole server variables
 $piholeIPv4 = "104.237.149.216"
-$piholeIPv6 = "2600:3c03::f03c:92ff:fe1e:83f6"
+$piholeIPv6 = ""
 
 
 #Start Transcripting
