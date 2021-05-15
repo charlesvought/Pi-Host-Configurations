@@ -25,7 +25,7 @@ $msgBoxInput = [System.Windows.MessageBox]::Show($MessageBody,$MessageTitle,$But
 switch  ($msgBoxInput) {
 
 	'Yes' {
-		Write-Host $PSCommandPath
+		Write-Host "##### ADD PIHOLE SERVER ADDRESSES #####"
 		Write-Host "# Existing DNS Settings..."
 		Get-DnsClientServerAddress
 
@@ -55,14 +55,24 @@ switch  ($msgBoxInput) {
   	}
 
 	'No' {
+		Write-Host "##### RESET SERVER ADDRESSES #####"
+		Write-Host "# Existing DNS Settings..."
+		Get-DnsClientServerAddress
 
 	    #Reset DNS setting back to default
 		$AllNetAdapters=Get-NetAdapter
 		foreach ($Adapter in $AllNetAdapters) {
     			Set-DnsClientServerAddress -InterfaceIndex $Adapter.ifIndex -ResetServerAddresses
 			}
+		Write-Host "`r`n# New DNS Settings..."
+		Get-DnsClientServerAddress
 		#Clear the DNS Cache
+		Write-Host "`r`n# Clearing DNS Cache...`r`n"
 		Clear-DnsClientCache
+		Write-Host "# Display IP Configurations"
+		# Display IP Config Information
+		ipconfig /all
+		Write-Host "# All operations completed.`r`n"
 		#Message to user confirming action
 		Add-Type -AssemblyName PresentationCore,PresentationFramework
 		$ButtonType = [System.Windows.MessageBoxButton]::OK
@@ -73,7 +83,7 @@ switch  ($msgBoxInput) {
   	}
 
 	'Cancel' {
-
+		Write-Host "##### CANCEL #####"
 		#Message to user confirming action
 		Add-Type -AssemblyName PresentationCore,PresentationFramework
 		$ButtonType = [System.Windows.MessageBoxButton]::OK
