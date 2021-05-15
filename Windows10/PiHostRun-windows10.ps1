@@ -48,8 +48,7 @@ switch  ($msgBoxInput) {
 		Add-Type -AssemblyName PresentationCore,PresentationFramework
 		$ButtonType = [System.Windows.MessageBoxButton]::OK
 		$MessageIcon = [System.Windows.MessageBoxImage]::Information
-		$MessageBody = "Your DNS settings have been changed to Pi-hole Alpha.
-		It is also recommend you clear your web-browser cache."
+		$MessageBody = "Your DNS settings have been changed to Pi-hole Alpha! It is also recommend you clear your web-browser cache."
  
 		[System.Windows.MessageBox]::Show($MessageBody,$MessageTitle,$ButtonType,$MessageIcon)
   	}
@@ -77,7 +76,7 @@ switch  ($msgBoxInput) {
 		Add-Type -AssemblyName PresentationCore,PresentationFramework
 		$ButtonType = [System.Windows.MessageBoxButton]::OK
 		$MessageIcon = [System.Windows.MessageBoxImage]::Information
-		$MessageBody = "Your DNS settings have been returned to default. Pi-hole DNS have been removed for all network adapters."
+		$MessageBody = "Your DNS settings have been returned to default! Pi-hole DNS have been removed for all network adapters."
  
 		[System.Windows.MessageBox]::Show($MessageBody,$MessageTitle,$ButtonType,$MessageIcon)
   	}
